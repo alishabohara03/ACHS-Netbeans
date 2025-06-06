@@ -1,0 +1,4 @@
+Inheritance.NewClass
+Inheritance.GetB
+Inheritance.GetA
+Inheritance.inheritance
