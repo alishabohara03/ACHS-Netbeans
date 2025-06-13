@@ -13,39 +13,37 @@ import java.util.Scanner;
 public class Qno13_rotatearrayleftbyoneposition {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        // Input: Array size
+        // Input array size
         System.out.print("Enter the number of elements: ");
-        int size = scanner.nextInt();
+        int n = input.nextInt();
 
-        int[] array = new int[size];
+        int[] arr = new int[n];
 
-        // Input: Array elements
-        System.out.println("Enter " + size + " elements:");
-        for (int i = 0; i < size; i++) {
+        // Input elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
             System.out.print("Element " + (i + 1) + ": ");
-            array[i] = scanner.nextInt();
+            arr[i] = input.nextInt();
         }
 
-        // Store the first element
-        int first = array[0];
-
-        // Shift elements left
-        for (int i = 0; i < size - 1; i++) {
-            array[i] = array[i + 1];
+        // Rotate array left by one
+        if (n > 0) {
+            int first = arr[0];
+            for (int i = 0; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[n - 1] = first;
         }
 
-        // Place the first element at the end
-        array[size - 1] = first;
-
-        // Output: Rotated array
-        System.out.println("\nArray after left rotation by one position:");
-        for (int i = 0; i < size; i++) {
-            System.out.println("Element at index " + i + ": " + array[i]);
+        // Display rotated array
+        System.out.print("\nArray after rotating left by one: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) System.out.print(", ");
         }
-
-       
+        System.out.println("]");
     }
 }
 

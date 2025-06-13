@@ -8,42 +8,54 @@ package lab.task.pkg1;
  *
  * @author asyla
  */
-import java.util.LinkedHashSet;
+
 import java.util.Scanner;
-import java.util.Set;
+
 
 public class Qno12_removeduplicatesfromarray {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
-
-        
+        // Input array size
         System.out.print("Enter the number of elements: ");
-        int size = scanner.nextInt();
+        int n = input.nextInt();
 
-        int[] array = new int[size];
+        int[] arr = new int[n];
 
-     
-        System.out.println("Enter " + size + " elements:");
-        for (int i = 0; i < size; i++) {
+        // Input array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
             System.out.print("Element " + (i + 1) + ": ");
-            array[i] = scanner.nextInt();
+            arr[i] = input.nextInt();
         }
 
-        
-        Set<Integer> unique = new LinkedHashSet<>();   // preserves insertion order
-        for (int num : array) {
-            unique.add(num);
+        // Remove duplicates
+        int[] temp = new int[n];
+        int j = 0;
+
+        for (int i = 0; i < n; i++) {
+            boolean isDuplicate = false;
+
+            for (int k = 0; k < j; k++) {
+                if (arr[i] == temp[k]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if (!isDuplicate) {
+                temp[j] = arr[i];
+                j++;
+            }
         }
 
-        
-        System.out.println("\nArray after removing duplicates:");
-        int index = 0;
-        for (int num : unique) {
-            System.out.println("Element at index " + index++ + ": " + num);
+        // Print array without duplicates
+        System.out.print("\nArray after removing duplicates: [");
+        for (int i = 0; i < j; i++) {
+            System.out.print(temp[i]);
+            if (i < j - 1) System.out.print(", ");
         }
-
-        scanner.close();
+        System.out.println("]");
     }
 }
 

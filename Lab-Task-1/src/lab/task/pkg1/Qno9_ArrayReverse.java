@@ -11,34 +11,36 @@ package lab.task.pkg1;
 import java.util.Scanner;
 public class Qno9_ArrayReverse {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements:");
-        int size = scanner.nextInt();
-        
-        int[] array = new int[size];
-        
-        System.out.println("Enter " + size + " elements:");
-        for (int i = 0; i < size; i++) {
-            System.out.print("Element " + (i+1) + ":");
-            array[i] = scanner.nextInt();
-            
+        Scanner input = new Scanner(System.in);
+
+        // Input array size
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+
+        int[] arr = new int[n];
+
+        // Input array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            arr[i] = input.nextInt();
         }
-        int start = 0;
-        int end = size - 1;
-        while (start < end) {
-            int temp = array[start];
-            array[start] =array[end];
-            array[end] = temp;
-            
-            start++;
-            end--;
+
+        // Reverse the array in place
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
         }
-        
-        System.out.println("\nReversed array:");
-        for (int i = 0; i< size; i++) {
-            System.out.println("Element at index " + i + ":" +array[i]);
+
+        // Display the reversed array
+        System.out.print("\nReversed array: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) {
+                System.out.print(", ");
+            }
         }
+        System.out.println("]");
     }
-    
 }

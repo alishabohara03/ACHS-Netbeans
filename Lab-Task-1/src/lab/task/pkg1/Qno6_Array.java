@@ -9,24 +9,33 @@ package lab.task.pkg1;
  * @author asyla
  */
 import java.util.Scanner;
-public class Qno6_Array {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements:");
-        int size = scanner.nextInt();
-        
-        int[] numbers = new int[size];
-        
-        System.out.println("Enter " + size + " elements:\n");
-        for(int i = 0; i < size; i++){
-            System.out.println("Element" + (i+1) + ":");
-            numbers[i] = scanner.nextInt();
+    public class Qno6_Array {
+
+   public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Input size of the array
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+
+        int[] arr = new int[n];
+
+        // Input elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            arr[i] = input.nextInt();
         }
-        System.out.println("The elements of the array are:");
-        for(int i =0; i < size; i++){
-            System.out.println("Element at index" + i + ":" + numbers[i]);
+
+        // Display the array
+        System.out.print("\nThe array elements are: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) {
+                System.out.print(", ");
+            }
         }
+        System.out.println("]");
     }
-    
-}
+    }
+

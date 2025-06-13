@@ -11,34 +11,43 @@ package lab.task.pkg1;
 import java.util.Scanner;
 public class Qno11_sortanarrayinasscendingorder {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements:");
-        int size = scanner.nextInt();
-        
-        int[] array = new int[size];
-        
-        System.out.println("ENter " + size + " elements:");
-        for (int i =0; i < size; i++) {
-            System.out.print("Element " + (i+1) + ":");
-            array[i] = scanner.nextInt();
-        } 
-        
-        for (int i = 0; i< size -1; i++) {
-            for (int j = 0; j < size -1 - i; j++) {
-                if (array[j] > array[j +1]) {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+        Scanner input = new Scanner(System.in);
+
+        // Input array size
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+
+        int[] arr = new int[n];
+
+        // Input array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            arr[i] = input.nextInt();
+        }
+
+        // Sort array in ascending order (selection sort)
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) {
+                    // Swap arr[i] and arr[j]
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
                 }
             }
         }
-        
-        System.out.println("\nArray in ascending order:");
-        for (int i =0; i < size; i++) {
-            System.out.println("Element at index " + i + ": " + array[i]);
+
+        // Display the sorted array
+        System.out.print("\nSorted array in ascending order: [");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i < n - 1) {
+                System.out.print(", ");
+            }
         }
-        
+        System.out.println("]");
     }
+
     
 }
